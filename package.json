@@ -4,11 +4,12 @@
   "description": "Implementação do tabnews pelo curso.dev",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev:nodb": "next dev",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test":"jest",
-    "test:watch":"jest --watch"
+    "test:watch":"jest --watch",
+    "dev": "docker-compose -f infra/compose.yaml up -d && next dev "
   },
   "author": "",
   "license": "MIT",
