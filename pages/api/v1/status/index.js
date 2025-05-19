@@ -9,6 +9,7 @@ async function status(request, response) {
     text: "SELECT count(*)::int FROM pg_stat_activity WHERE datname = $1;",
     values: [databaseName],
   });
+
   const result = {
     updated_at: updatedAt,
     dependencies: {
@@ -16,6 +17,7 @@ async function status(request, response) {
         max_connections: parseInt(maxConnections.rows[0].max_connections),
         opened_connections: currentConnections.rows[0].count,
         version: postgresVersion.rows[0].server_version,
+        ssl: "require",
       },
     },
   };
